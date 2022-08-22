@@ -11,6 +11,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import axios from 'axios';
+axios.defaults.withCredentials = true;
+
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(promiseMiddleware, thunkMiddleware)));
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
