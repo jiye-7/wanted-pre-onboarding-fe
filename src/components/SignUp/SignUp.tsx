@@ -1,21 +1,28 @@
 import React, { useMemo, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signUpUser } from '../../redux/actions/userAction';
 import { Validation } from '../../lib/validation';
-
-export enum FormValue {
-	password = 'password',
-	email = 'email',
-}
+import { FormValue } from '../../@types/types';
 
 const SignUp = () => {
+	const dispatch = useDispatch();
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const emailValid = useMemo(() => Validation.emailValidation(email), [email]);
 	const passwordValid = useMemo(() => Validation.passwordValidation(password), [password]);
 
-	const onValidationForm = () => {
+	const onValidationForm = async (): Promise<void> => {
 		if (emailValid && passwordValid) {
-			console.log('회원가입!');
+			const data = { email, password };
+			const { payload } = dispatch(await signUpUser(data));
+			if (payload.data) {
+				setToken(payload.data.access_token);
+			}
 		}
+	};
+
+	const setToken = (token: string) => {
+		localStorage.setItem('userToken', token);
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

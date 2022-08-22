@@ -25,6 +25,8 @@
 		"prettier/prettier": 0,
 		"@typescript-eslint/no-unsafe-assignment": "warn",
 		"@typescript-eslint/no-floating-promises": 0,
+		"@typescript-eslint/restrict-plus-operands": ["warn", { "checkCompoundAssignments": true }],
+		"@typescript-eslint/no-misused-promises": ["warn", { "checksVoidReturn": false }],
 		"quotes": 0,
 		"max-len": [
 			2,
