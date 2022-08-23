@@ -11,3 +11,10 @@ export interface IUser {
 export type IResponseToken = {
 	access_token: string;
 };
+
+export interface IResponseTodo {
+	id: number;
+	isCompleted: boolean;
+	todo: string;
+	userId: number;
+}

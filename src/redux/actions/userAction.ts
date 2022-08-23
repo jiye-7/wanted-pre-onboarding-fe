@@ -1,5 +1,5 @@
+import { signInUserAPI, signUpUserAPI } from './../module/userApi';
 import { SIGN_IN_USER, SIGN_UP_USER } from './types';
-import { signInUserAPI, signUpUserAPI } from '../module/userAPI';
 import { IUser } from '../../@types/types';
 
 export const signUpUser = (data: IUser) => {
