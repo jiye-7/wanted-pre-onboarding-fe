@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signInUser } from '../../redux/actions/userAction';
@@ -12,12 +12,6 @@ const SignIn = () => {
 	const [password, setPassword] = useState<string>('');
 	const emailValid = useMemo(() => Validation.emailValidation(email), [email]);
 	const passwordValid = useMemo(() => Validation.passwordValidation(password), [password]);
-
-	useLayoutEffect(() => {
-		// 나 지금 토큰이 있나?
-		// 있으면 , 로그인 회원가입이 필요없네?
-		//
-	}, []);
 
 	const onSignIn = async (data: IUser): Promise<void> => {
 		const { payload } = dispatch(await signInUser(data));
