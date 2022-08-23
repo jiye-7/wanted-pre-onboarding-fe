@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../redux/actions/userAction';
 import { Validation } from '../../lib/validation';
 import { FormValue, IUser } from '../../@types/types';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const emailValid = useMemo(() => Validation.emailValidation(email), [email]);
@@ -15,6 +17,7 @@ const SignUp = () => {
 		const { payload } = dispatch(await signUpUser(data));
 		if (payload.data) {
 			setToken(payload.data.access_token);
+			navigate('/');
 		}
 	};
 
