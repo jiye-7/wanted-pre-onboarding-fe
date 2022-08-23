@@ -4,6 +4,7 @@ import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
 import Navigation from './components/Navigation';
 import Todos from './components/Todo/Todos';
+import Auth from './hoc/Auth';
 import './App.css';
 
 function App() {
@@ -11,10 +12,10 @@ function App() {
 		<main className="App">
 			<Navigation />
 			<Routes>
-				<Route path="/" element={<Main />} />
-				<Route path="/signup" element={<SignUp />} />
-				<Route path="/signin" element={<SignIn />} />
-				<Route path="/todo" element={<Todos />} />
+				<Route path="/" element={<Auth SpecificComponent={<Main />} option={true} />} />
+				<Route path="/signup" element={<Auth SpecificComponent={<SignUp />} option={false} />} />
+				<Route path="/signin" element={<Auth SpecificComponent={<SignIn />} option={false} />} />
+				<Route path="/todo" element={<Auth SpecificComponent={<Todos />} option={true} />} />
 			</Routes>
 		</main>
 	);
