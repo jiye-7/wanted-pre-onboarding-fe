@@ -1,37 +1,17 @@
-import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Box, Tabs, Tab } from '@mui/material';
 
-interface LinkTabProps {
-	label?: string;
-	href?: string;
-}
-
-function LinkTab(props: LinkTabProps) {
-	return (
-		<Tab
-			component="a"
-			onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-				event.preventDefault();
-			}}
-			{...props}
-		/>
-	);
-}
-
 const Navigation = () => {
-	const [value, setValue] = useState<number>(0);
-
-	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue);
-	};
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	return (
 		<nav>
 			<Box sx={{ width: '100%' }}>
-				<Tabs value={value} onChange={handleChange} aria-label="Navigation Tabs">
-					<LinkTab label="My ToDo List :)" href="/" />
-					<LinkTab label="SignUp" href="/signup" />
-					<LinkTab label="SignIn" href="/signin" />
+				<Tabs value={location.pathname} aria-label="Navigation Tabs">
+					<Tab label="My ToDo List :)" value="/" onClick={() => navigate('/')} />
+					<Tab label="SignUp" value="/signup" onClick={() => navigate('/signup')} />
+					<Tab label="SignIn" value="/signin" onClick={() => navigate('/signin')} />
 				</Tabs>
 			</Box>
 		</nav>
