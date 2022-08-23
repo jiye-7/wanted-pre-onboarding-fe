@@ -12,3 +12,9 @@ export const signUpUserAPI = (data: IUser) => {
 		.post(`${SERVER_API}${USER_SERVER}/signup`, data, { headers })
 		.then((res: AxiosResponse<IResponseToken>) => res);
 };
+
+export const signInUserAPI = (data: IUser) => {
+	return axios
+		.post(`${SERVER_API}${USER_SERVER}/signin`, data, { headers })
+		.then((res: AxiosResponse<IResponseToken>) => res);
+};
