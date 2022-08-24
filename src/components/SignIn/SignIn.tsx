@@ -44,7 +44,7 @@ const SignIn = () => {
 
 	return (
 		<>
-			<h1>Login</h1>
+			<h1>SignIn</h1>
 			<form onSubmit={onValidationForm}>
 				<div>
 					<label htmlFor="email">Email</label>
