@@ -4,6 +4,7 @@ import { signUpUser } from '../../redux/actions/userAction';
 import { Validation } from '../../lib/validation';
 import { FormValue, IUser } from '../../@types/types';
 import { useNavigate } from 'react-router-dom';
+import { Container, H1, Form, Box, Label, Input, Button } from '../SignIn/SignIn';
 
 const SignUp = () => {
 	const dispatch = useDispatch();
@@ -43,22 +44,22 @@ const SignUp = () => {
 	};
 
 	return (
-		<>
-			<h1>SignUp</h1>
-			<form onSubmit={onValidationForm}>
-				<div>
-					<label htmlFor="email">Email</label>
-					<input id="email" type="email" value={email} onChange={handleChange} />
-				</div>
-				<div>
-					<label htmlFor="pw">Password</label>
-					<input id="pw" type="password" autoComplete="off" onChange={handleChange} />
-				</div>
-				<button type="button" disabled={!emailValid || !passwordValid} onClick={onValidationForm}>
+		<Container>
+			<H1>SignUp</H1>
+			<Form onSubmit={onValidationForm}>
+				<Box>
+					<Label htmlFor="email">Email</Label>
+					<Input id="email" type="email" value={email} onChange={handleChange} />
+				</Box>
+				<Box>
+					<Label htmlFor="pw">Password</Label>
+					<Input id="pw" type="password" autoComplete="off" onChange={handleChange} />
+				</Box>
+				<Button type="button" disabled={!emailValid || !passwordValid} onClick={onValidationForm}>
 					회원가입
-				</button>
-			</form>
-		</>
+				</Button>
+			</Form>
+		</Container>
 	);
 };
 

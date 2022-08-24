@@ -6,34 +6,34 @@ import { Validation } from '../../lib/validation';
 import { FormValue, IUser } from '../../@types/types';
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
 	padding: 7rem 0 10rem;
 	background-color: #efebe9;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 `;
 
-const H1 = styled.h1`
+export const H1 = styled.h1`
 	margin-bottom: 4rem;
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
 	margin: auto 0;
 	width: 100%;
 `;
 
-const Box = styled.div`
+export const Box = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 1rem;
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
 	width: 80px;
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
 	width: 13rem;
 	padding: 0.4rem;
 	border: none;
@@ -42,7 +42,7 @@ const Input = styled.input`
 	background-color: #fff;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
 	width: 9rem;
 	padding: 1rem;
 	margin: 5rem 0 0 2rem;
