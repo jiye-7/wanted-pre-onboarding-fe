@@ -29,7 +29,6 @@ export const createTodoAPI = (value: string) => {
 };
 
 export const updateToDoAPI = (data: IRequestTodo) => {
-	console.log(data);
 	return axios
 		.put(`${SERVER_API}${TODO_SERVER}/${data.id}`, data, {
 			headers: {

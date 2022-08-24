@@ -37,7 +37,6 @@ const Todo = ({ todo }: IProps): JSX.Element => {
 				})
 			);
 			if (payload.status === 200) {
-				console.log(payload);
 				navigate('/');
 			}
 		} catch (error) {
