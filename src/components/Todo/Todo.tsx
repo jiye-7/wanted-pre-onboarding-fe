@@ -1,9 +1,8 @@
-import { AxiosError } from 'axios';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { IResponseTodo } from '../../@types/types';
-import { updateTodo } from '../../redux/actions/todoAction';
+import { updateTodo, deleteTodo } from '../../redux/actions/todoAction';
 
 interface IProps {
 	todo: IResponseTodo;
@@ -26,7 +25,7 @@ const Todo = ({ todo }: IProps): JSX.Element => {
 		handleModifyCompleted(!isCompleted);
 	};
 
-	// 완료/미완료 업데이트 요청
+	// 완료/미완료 or 내용 수정 업데이트 요청
 	const handleModifyCompleted = async (completeState: boolean) => {
 		try {
 			const { payload } = dispatch(
@@ -42,6 +41,15 @@ const Todo = ({ todo }: IProps): JSX.Element => {
 		} catch (error) {
 			console.log(error);
 		}
+	};
+
+	const handleDelete = async (id: number) => {
+		try {
+			const { payload } = dispatch(await deleteTodo(id));
+			if (payload.status === 204) {
+				navigate('/');
+			}
+		} catch (error) {}
 	};
 
 	const handleIsSetModify = () => {
@@ -76,7 +84,7 @@ const Todo = ({ todo }: IProps): JSX.Element => {
 					/>
 					<span>{isCompleted === false ? '미완료' : '완료'}</span>
 					{!isModify && <button onClick={handleIsSetModify}>수정</button>}
-					{!isModify && <button>삭제</button>}
+					{!isModify && <button onClick={() => handleDelete(todo.id)}>삭제</button>}
 				</div>
 			)}
 		</>

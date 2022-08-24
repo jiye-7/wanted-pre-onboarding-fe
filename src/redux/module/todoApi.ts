@@ -38,3 +38,7 @@ export const updateToDoAPI = (data: IRequestTodo) => {
 		})
 		.then((res: AxiosResponse<IResponseTodo>) => res);
 };
+
+export const deleteTodoAPI = (id: number) => {
+	return axios.delete(`${SERVER_API}${TODO_SERVER}/${id}`, { headers }).then((res: AxiosResponse) => res);
+};

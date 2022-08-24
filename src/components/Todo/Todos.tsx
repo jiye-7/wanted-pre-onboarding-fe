@@ -36,13 +36,15 @@ const Todos = () => {
 					setTodos([...todos, payload.data]);
 				}
 				setTodoValue('');
-			} catch {}
+			} catch (err) {
+				console.log(err, 'error가 발생하였습니다.');
+			}
 		}
 	};
 
 	return (
 		<div>
-			<h3>{todos.length === 0 && '데이터가 없습니다.'}</h3>
+			<h3>{todos.length === 0 && '데이터를 가져오는 중입니다.. :)'}</h3>
 			{todos?.map((todo: IResponseTodo) => (
 				<Todo key={todo.id} todo={todo} />
 			))}
