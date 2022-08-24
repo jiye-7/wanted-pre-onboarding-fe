@@ -7,7 +7,7 @@
 <details>
 <summary>SignUp후 login을 따로 하지 않아도 localStorage에 token저장, token을 가져와 auth 처리</summary>
 
-https://user-images.githubusercontent.com/62678492/186369514-6e52360b-7fe9-4eba-8b8c-0be8341d16ef.mov
+https://user-images.githubusercontent.com/62678492/186390651-5d6df67b-6720-4b32-ac2c-c22930cc9606.mov
 
 <br/>
 </details>
@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/62678492/186369514-6e52360b-7fe9-4eba-
 <details>
 <summary>todo 추가, 완료/미완료 여부 체크 기능, 수정 및 삭제 기능</summary>
 
-https://user-images.githubusercontent.com/62678492/186369663-f12bba4f-afc5-4420-88c7-d6b0c574e925.mov
+https://user-images.githubusercontent.com/62678492/186390671-f217bf68-823b-4b76-a38e-35892992b2cc.mov
 
 <br/>
 </details>
