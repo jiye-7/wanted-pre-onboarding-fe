@@ -21,7 +21,7 @@ const Todos = () => {
 				console.log(err);
 			}
 		};
-		void allTodos();
+		allTodos();
 	}, [dispatch]);
 
 	const handleChangeInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +29,15 @@ const Todos = () => {
 	};
 
 	const handleAddTodo = async () => {
-		dispatch(await createTodo(todoValue));
+		if (todoValue.length) {
+			try {
+				const { payload } = dispatch(await createTodo(todoValue));
+				if (payload.status === 201) {
+					setTodos([...todos, payload.data]);
+				}
+				setTodoValue('');
+			} catch {}
+		}
 	};
 
 	return (
@@ -38,8 +46,8 @@ const Todos = () => {
 			{todos?.map((todo: IResponseTodo) => (
 				<Todo key={todo.id} todo={todo} />
 			))}
-			<div>
-				<label htmlFor="addtodo">등록할 내용을 입력해주세요 :)</label>
+			<h3>등록할 내용을 입력해주세요 :)</h3>
+			<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 				<input type="text" id="addtodo" value={todoValue} onChange={(e) => handleChangeInputValue(e)} />
 				<button onClick={handleAddTodo}>추가</button>
 			</div>

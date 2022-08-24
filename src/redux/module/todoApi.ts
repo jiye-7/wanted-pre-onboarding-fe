@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IResponseTodo } from '../../@types/types';
+import { IResponseTodo, IRequestTodo } from '../../@types/types';
 import { TODO_SERVER } from '../../Config';
 
 const SERVER_API = 'https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production';
@@ -25,5 +25,17 @@ export const createTodoAPI = (value: string) => {
 				},
 			}
 		)
-		.then((res: AxiosResponse<IResponseTodo[]>) => res);
+		.then((res: AxiosResponse<IResponseTodo>) => res);
+};
+
+export const updateToDoAPI = (data: IRequestTodo) => {
+	console.log(data);
+	return axios
+		.put(`${SERVER_API}${TODO_SERVER}/${data.id}`, data, {
+			headers: {
+				...headers,
+				'Content-Type': 'application/json',
+			},
+		})
+		.then((res: AxiosResponse<IResponseTodo>) => res);
 };
