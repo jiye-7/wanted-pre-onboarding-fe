@@ -4,6 +4,51 @@ import { useNavigate } from 'react-router-dom';
 import { signInUser } from '../../redux/actions/userAction';
 import { Validation } from '../../lib/validation';
 import { FormValue, IUser } from '../../@types/types';
+import styled from 'styled-components';
+
+const Container = styled.div`
+	padding: 7rem 0 10rem;
+	background-color: #efebe9;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+`;
+
+const H1 = styled.h1`
+	margin-bottom: 4rem;
+`;
+
+const Form = styled.form`
+	margin: auto 0;
+	width: 100%;
+`;
+
+const Box = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+`;
+
+const Label = styled.label`
+	width: 80px;
+`;
+
+const Input = styled.input`
+	width: 13rem;
+	padding: 0.4rem;
+	border: none;
+	border-radius: 0.4rem;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	background-color: #fff;
+`;
+
+const Button = styled.button`
+	width: 9rem;
+	padding: 1rem;
+	margin: 5rem 0 0 2rem;
+	font-size: 1rem;
+	font-family: bole;
+`;
 
 const SignIn = () => {
 	const dispatch = useDispatch();
@@ -43,22 +88,27 @@ const SignIn = () => {
 	};
 
 	return (
-		<>
-			<h1>SignIn</h1>
-			<form onSubmit={onValidationForm}>
-				<div>
-					<label htmlFor="email">Email</label>
-					<input id="email" type="email" value={email} onChange={handleChange} />
-				</div>
-				<div>
-					<label htmlFor="pw">Password</label>
-					<input id="pw" type="password" autoComplete="off" onChange={handleChange} />
-				</div>
-				<button type="button" disabled={!emailValid || !passwordValid} onClick={onValidationForm}>
+		<Container>
+			<H1>SignIn</H1>
+			<Form onSubmit={onValidationForm}>
+				<Box>
+					<Label htmlFor="email">Email</Label>
+					<Input id="email" type="email" value={email} onChange={handleChange} />
+				</Box>
+				<Box>
+					<Label htmlFor="pw">Password</Label>
+					<Input id="pw" type="password" autoComplete="off" onChange={handleChange} />
+				</Box>
+				<Button
+					type="button"
+					className={emailValid || !passwordValid ? 'visible' : ''}
+					disabled={!emailValid || !passwordValid}
+					onClick={onValidationForm}
+				>
 					로그인
-				</button>
-			</form>
-		</>
+				</Button>
+			</Form>
+		</Container>
 	);
 };
 

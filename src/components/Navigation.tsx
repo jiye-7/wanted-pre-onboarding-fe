@@ -1,4 +1,4 @@
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.nav`
@@ -7,13 +7,16 @@ const Container = styled.nav`
 	justify-content: center;
 `;
 
+const Ul = styled.ul`
+	margin-top: 5%;
+`;
+
 const Navigation = () => {
-	const navigate = useNavigate();
 	const location = useLocation();
 
 	return (
 		<Container>
-			<ul>
+			<Ul>
 				<li value={location.pathname} aria-label="Navigation Tabs">
 					<Link style={{ textDecoration: 'none', color: '#000' }} to="/">
 						My ToDo List
@@ -29,7 +32,7 @@ const Navigation = () => {
 						SignIn
 					</Link>
 				</li>
-			</ul>
+			</Ul>
 		</Container>
 	);
 };
