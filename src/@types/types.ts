@@ -18,3 +18,9 @@ export interface IResponseTodo {
 	todo: string;
 	userId: number;
 }
+
+export interface IRequestTodo {
+	id: number;
+	isCompleted: boolean;
+	todo: string;
+}
