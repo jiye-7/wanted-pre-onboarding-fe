@@ -1,4 +1,4 @@
-import { signInUserAPI, signUpUserAPI } from './../module/userApi';
+import { signInUserAPI, signUpUserAPI } from '../module/userAPI';
 import { SIGN_IN_USER, SIGN_UP_USER } from './types';
 import { IUser } from '../../@types/types';
 

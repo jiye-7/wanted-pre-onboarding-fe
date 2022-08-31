@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { IResponseToken, IUser } from '../../@types/types';
 import { USER_SERVER } from '../../Config';
 
-const SERVER_API = 'https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production';
+const SERVER_API = 'https://n38lcff1wk.execute-api.ap-northeast-2.amazonaws.com';
 const headers = {
 	'Content-Type': 'application/json',
 };

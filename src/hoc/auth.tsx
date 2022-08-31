@@ -18,16 +18,7 @@ const Auth = ({ SpecificComponent, option }: IProps) => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
 	useEffect(() => {
-		// 로그인이 되었을 때
-		//  - 접근 불가능한 경우: option이 false 일 때
-		//  - 접근 가능한 경우: option이 true / null 일 때
-
-		// 로그인 되지 않았을 때
-		//  - 접근 불가능한 경우: option이 true 일 때
-		//  - 접근 가능한 경우: options이 false / null 일 때
-
 		if (localStorage.getItem('userToken')) {
-			// 로그인 되어있고, 로그인 안 되어 있으면 접근 불가
 			if (option === false) {
 				navigate('/todo');
 			}
